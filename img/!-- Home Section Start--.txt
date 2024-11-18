@@ -1,0 +1,47 @@
+<!-- Home Section Start-->
+       <section class="home section">
+        <div class="container">
+          <div class="row">
+            <div class="home-info">
+              <h3 class="hello">Hello, my name is <span class="name">Somanath</span></h3>
+                <h3 class="my-profession">I' m a <span class="typing">Web Developer</span></h3>
+                <p>"A web developer is a digital maestro, orchestrating intricate symphonies of code to create stunning, functional websites that captivate and inspire users across the globe.</p>
+                <a href="#contact" class="btn hire-me">Hire Me</a>
+            </div>
+            <div class="home-img">
+              <img src="images/tapu14.jpg" alt="">
+            </div>
+          </div>
+        </div>
+       </section>
+      <!-- Home Section End-->
+
+
+
+
+
+ <div class="aside">
+        <div class="logo">
+          <a href="#"><span>S</span>omanath</a>
+        </div>
+        <div class="nav-toggle">
+          <span> </span>
+        </div>
+        <ul class="nav">
+          <li>
+            <a href="#" class="active"><i class="fa fa-home"></i> Home</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-user"></i> About</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-list"></i>Services</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-briefcase"></i>Portfolio</a>
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-comments"></i>Contact</a>
+          </li>
+        </ul>
+      </div>

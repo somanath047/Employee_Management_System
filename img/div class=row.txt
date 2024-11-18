@@ -1,0 +1,44 @@
+<div class="row">
+                    <div class="timeline-box padd-15">
+                      <div class="timeline shadow-dark">
+                        <!-- timeline items -->
+                        <div class="timeline-item">
+                          <div class="circle-dot">
+                            <h3 class="timeline-data">
+                          </div>
+                          <i class="fa fa-calendar"></i> 2023 - 2027
+                          </h3>
+                          <h4 class="timeline-title">Kali Linux</h4>
+                          <p class="timeline-text">
+                            With 4 years of expertise in Kali Linux OS and mastering its commands, I can navigate its powerful tools for penetration testing, cybersecurity, and network analysis with precision and efficiency.
+                          </p>
+                        </div>
+                        <!-- Timeline item -->
+                        <div class="timeline-item">
+                          <div class="circle-dot">
+                            <h3 class="timeline-data">
+                          </div>
+                          <i class="fa fa-calendar"></i> 2022-2024
+                          </h3>
+                          <h4 class="timeline-title">Web Developer</h4>
+                          <p class="timeline-text">
+                            With hands-on experience as a web developer for ITC , I excel in designing, coding, and maintaining websites, ensuring user-friendly interfaces and optimizing performance for a seamless digital experience.
+                          </p>
+                        </div>
+
+
+                        <!-- timeline items -->
+                        <div class="timeline-item">
+                          <div class="circle-dot">
+                            <h3 class="timeline-data">
+                          </div>
+                          <i class="fa fa-calendar"></i> 2023-2028
+                          </h3>
+                          <h4 class="timeline-title">Security Analysis</h4>
+                          <p class="timeline-text">
+                            With 4 years of expertise in security analysis, I specialize in identifying vulnerabilities, implementing robust protective measures, and ensuring comprehensive data security. My skills include penetration testing, risk assessment, and developing security policies to safeguard critical assets.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>

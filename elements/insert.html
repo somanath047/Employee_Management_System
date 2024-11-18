@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insert Employee Information</title>
+  <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f9fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container Styling */
+  .container {
+    max-width: 500px;
+    width: 100%;
+    padding: 20px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  
+  /* Form Title */
+  .container h2 {
+    text-align: center;
+    color: #333;
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 1em;
+  }
+  
+  /* Form Styling */
+  #insert-form label {
+    display: block;
+    font-weight: 600;
+    color: #555;
+    margin: 15px 0 5px;
+  }
+  
+  #insert-form input[type="text"] {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+  }
+  
+  #insert-form input[type="text"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+    outline: none;
+  }
+  
+  /* Submit Button Styling */
+  #insert-form button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  #insert-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Hover & Focus Animations */
+  #insert-form input[type="text"] {
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  #insert-form input[type="text"]:focus {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 8px rgba(0, 123, 255, 0.3);
+  }
+  
+  /* Keyframe Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .container {
+      padding: 15px;
+      margin: 15px;
+    }
+    
+    #insert-form button, #insert-form input[type="text"] {
+      font-size: 0.9em;
+    }
+  }
+  
+  </style>
+  <script>
+    // JavaScript for the Insert Form
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('insert-form');
+  
+    form.addEventListener('submit', function (event) {
+      event.preventDefault(); // Prevent page reload
+  
+      // Validate form fields
+      const empName = document.getElementById('emp-name').value.trim();
+      const empID = document.getElementById('emp-id').value.trim();
+      const empDept = document.getElementById('emp-department').value.trim();
+  
+      if (empName === '' || empID === '' || empDept === '') {
+        alert('Please fill in all fields.');
+      } else {
+        alert(`Employee ${empName} added successfully!`);
+  
+        // Clear the form fields
+        form.reset();
+      }
+    });
+  });
+  
+  </script>
+</head>
+<body>
+  <section class="insert-section">
+    <div class="container">
+      <h2>Insert Employee Information</h2>
+      <form id="insert-form">
+        <label for="emp-name">Employee Name:</label>
+        <input type="text" id="emp-name" name="emp-name" required />
+        
+        <label for="emp-id">Employee ID:</label>
+        <input type="text" id="emp-id" name="emp-id" required />
+
+        <label for="emp-department">Department:</label>
+        <input type="text" id="emp-department" name="emp-department" required />
+
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+</body>
+</html>

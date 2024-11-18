@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Attendance</title>
+  <style>
+    /* attendance.css */
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  header h1 {
+    font-size: 2em;
+    color: #4a4a8a;
+    margin-top: 20px;
+  }
+  
+  .attendance-table {
+    margin: 20px;
+    width: 80%;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+  }
+  
+  table, th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  thead {
+    background-color: #4a4a8a;
+    color: #fff;
+  }
+  
+  tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  td {
+    text-align: center;
+  }
+  
+  /* Styling for the Edit icon */
+  .edit-icon {
+    color: #4caf50;
+    cursor: pointer;
+    font-size: 1.2em;
+    transition: color 0.3s;
+  }
+  
+  .edit-icon:hover {
+    color: #388e3c;
+  }
+  
+  </style>
+  <script>
+    // attendance.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const employeeTableBody = document.getElementById("employee-table-body");
+  
+    // Generate and populate the table with employee data
+    const employees = generateEmployees(20);
+    employees.forEach((employee) => {
+      const row = document.createElement("tr");
+  
+      row.innerHTML = `
+        <td>${employee.id}</td>
+        <td>${employee.name}</td>
+        <td>${employee.department}</td>
+        <td class="attendance-status">${employee.attendanceStatus}</td>
+        <td><span class="edit-icon" data-id="${employee.id}">✔</span></td>
+      `;
+  
+      employeeTableBody.appendChild(row);
+    });
+  
+    // Add event listener for edit icons
+    document.querySelectorAll(".edit-icon").forEach(icon => {
+      icon.addEventListener("click", (event) => {
+        const rowId = event.target.dataset.id;
+        toggleAttendanceStatus(rowId);
+      });
+    });
+  });
+  
+  // Function to generate a list of employees
+  function generateEmployees(count) {
+    const names = [
+      "Alice Johnson", "Bob Smith", "Charlie Brown", "Diana Ross", "Edward White",
+      "Fiona Black", "George Harris", "Helen Green", "Ian Walker", "Jack Carter",
+      "Katherine Adams", "Louis Turner", "Mona Scott", "Nina Lopez", "Oliver King",
+      "Paula Davis", "Quincy James", "Rachel Lee", "Steve Clark", "Tracy Hill"
+    ];
+  
+    const departments = ["HR", "Finance", "Engineering", "Sales", "Marketing"];
+    const attendanceStatuses = ["Present", "Absent", "On Leave"];
+    
+    const employees = [];
+    
+    for (let i = 0; i < count; i++) {
+      const employee = {
+        id: i + 1,
+        name: names[i % names.length],  // Use names from the list
+        department: departments[Math.floor(Math.random() * departments.length)],
+        attendanceStatus: attendanceStatuses[Math.floor(Math.random() * attendanceStatuses.length)]
+      };
+      employees.push(employee);
+    }
+    
+    return employees;
+  }
+  
+  // Function to toggle attendance status
+  function toggleAttendanceStatus(employeeId) {
+    // Get the row with the matching ID
+    const row = document.querySelector(`[data-id="${employeeId}"]`).closest("tr");
+    const statusCell = row.querySelector(".attendance-status");
+  
+    // Rotate through attendance statuses
+    const statuses = ["Present", "Absent", "On Leave"];
+    const currentStatus = statusCell.textContent;
+    const nextStatus = statuses[(statuses.indexOf(currentStatus) + 1) % statuses.length];
+  
+    // Update the cell with the new status
+    statusCell.textContent = nextStatus;
+  }
+  
+  </script>
+</head>
+<body>
+  <header>
+    <h1>Employee Attendance</h1>
+  </header>
+
+  <section class="attendance-table">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Attendance Status</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+      <tbody id="employee-table-body">
+        <!-- Employees will be generated here -->
+      </tbody>
+    </table>
+  </section>
+</body>
+</html>

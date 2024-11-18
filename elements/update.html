@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Update Employee</title>
+  <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container for the update section */
+  .container {
+    width: 90%;
+    max-width: 800px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header styling */
+  h1 {
+    font-size: 28px;
+    color: #007bff;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Form styling */
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .update-btn {
+    background-color: #4CAF50;
+  }
+  
+  .update-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .insert-btn {
+    background-color: #007bff;
+  }
+  
+  .insert-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Buttons container */
+  .actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  </style>
+  <script>
+    // Function to handle insert button action
+function insertEmployee() {
+    alert("Redirecting to Insert Employee form.");
+    // You can replace this with the actual insert functionality, such as opening an insert form
+    window.location.href = "insert.html";
+  }
+  
+  // Function to handle delete button action
+  function deleteEmployee() {
+    const empId = prompt("Enter Employee ID to delete:");
+    
+    if (empId) {
+      const confirmDelete = confirm(`Are you sure you want to delete Employee ID: ${empId}?`);
+      
+      if (confirmDelete) {
+        alert(`Employee ID: ${empId} has been deleted.`);
+        // Replace this with the actual delete functionality, such as removing the employee from the database
+      }
+    }
+  }
+  
+  // Function to handle form submission for updating employee
+  function updateEmployee(event) {
+    event.preventDefault(); // Prevents the form from actually submitting
+  
+    const empId = document.getElementById("emp-id").value;
+    const empName = document.getElementById("emp-name").value;
+    const empDepartment = document.getElementById("emp-department").value;
+    const empPosition = document.getElementById("emp-position").value;
+  
+    // Example: Display updated data (you can add actual logic to save the updated info)
+    alert(`Updated Employee Details:\nID: ${empId}\nName: ${empName}\nDepartment: ${empDepartment}\nPosition: ${empPosition}`);
+  }
+  
+  // Add an event listener to the update form
+  document.querySelector("form").addEventListener("submit", updateEmployee);
+  
+  </script>
+</head>
+<body>
+  <section id="update">
+    <div class="container">
+      <h1>Update Employee Information</h1>
+
+      <!-- Form to update employee data -->
+      <form>
+        <label for="emp-id">Employee ID:</label>
+        <input type="text" id="emp-id" name="emp-id" placeholder="Enter Employee ID" required>
+
+        <label for="emp-name">Employee Name:</label>
+        <input type="text" id="emp-name" name="emp-name" placeholder="Enter Employee Name" required>
+
+        <label for="emp-department">Department:</label>
+        <input type="text" id="emp-department" name="emp-department" placeholder="Enter Department" required>
+
+        <label for="emp-position">Position:</label>
+        <input type="text" id="emp-position" name="emp-position" placeholder="Enter Position" required>
+
+        <button type="submit" class="update-btn">Update Employee</button>
+      </form>
+
+      <!-- Insert and Delete buttons -->
+      <div class="actions">
+        <button class="insert-btn" onclick="location.href='insert.html'">Insert Employee</button>
+        <button class="delete-btn" onclick="location.href='delete.html'">Delete Employee</button>
+      </div>
+    </div>
+  </section>
+</body>
+</html>

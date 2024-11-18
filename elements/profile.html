@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Profiles</title>
+
+  <!-- Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <!-- Custom CSS for Profiles -->
+  <style>
+    /* General body styling */
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #f0f2f5;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    /* Profiles container styling */
+    .profiles-container {
+      width: 100%;
+      max-width: 1000px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    /* Individual profile card styling */
+    .profile-card {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+
+    .profile-card:hover {
+      transform: scale(1.03);
+    }
+
+    .profile-card img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    .profile-card h3 {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 5px;
+    }
+
+    .profile-card p {
+      font-size: 14px;
+      color: #666;
+      margin: 5px 0;
+    }
+
+    .profile-card .profile-contact {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
+
+    .profile-card .material-icons-outlined {
+      color: #4a4a8a;
+      font-size: 24px;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .profile-card .material-icons-outlined:hover {
+      color: #333;
+    }
+  </style>
+</head>
+<script>
+  // profiles.js
+
+document.addEventListener("DOMContentLoaded", loadProfiles);
+
+const employees = [
+  { name: "John Doe", position: "Software Engineer", department: "Engineering", photo: "https://via.img/emp1.com/100" },
+  { name: "Jane Smith", position: "Product Manager", department: "Product", photo: "https://via.placeholder.com/100" },
+  { name: "Alice Johnson", position: "HR Specialist", department: "Human Resources", photo: "https://via.placeholder.com/100" },
+  { name: "Bob Williams", position: "Sales Manager", department: "Sales", photo: "https://via.placeholder.com/100" },
+  { name: "Emma Brown", position: "Marketing Director", department: "Marketing", photo: "https://via.placeholder.com/100" }
+];
+
+// Function to load employee profiles dynamically
+function loadProfiles() {
+  const container = document.getElementById("profiles-container");
+  container.innerHTML = ""; // Clear existing content
+
+  employees.forEach(employee => {
+    const profileCard = document.createElement("div");
+    profileCard.className = "profile-card";
+
+    profileCard.innerHTML = `
+      <img src="${employee.photo}" alt="${employee.name}'s Photo">
+      <h3>${employee.name}</h3>
+      <p>Position: ${employee.position}</p>
+      <p>Department: ${employee.department}</p>
+      <div class="profile-contact">
+        <span class="material-icons-outlined" title="Email">email</span>
+        <span class="material-icons-outlined" title="Phone">phone</span>
+      </div>
+    `;
+
+    container.appendChild(profileCard);
+  });
+}
+
+</script>
+<body>
+  <div class="profiles-container" id="profiles-container">
+    <!-- Dynamic profiles will be loaded here -->
+  </div>
+
+  <!-- External JavaScript for loading profiles -->
+  <script src="js/profiles.js"></script>
+
+</body>
+</html>

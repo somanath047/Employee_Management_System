@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Delete Employee</title>
+  <style>
+    /* Add this to your styles.css */
+.container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    text-align: center;
+    color: #007bff;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  label {
+    font-size: 16px;
+    color: #333;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 12px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  </style>
+  <script>
+    // Function to handle delete button action
+function deleteEmployee(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+    
+    const empId = document.getElementById("emp-id").value;
+    
+    if (empId) {
+      const confirmDelete = confirm(`Are you sure you want to delete Employee ID: ${empId}?`);
+      
+      if (confirmDelete) {
+        // Perform deletion (this could be an AJAX request to a server to delete the data)
+        alert(`Employee ID: ${empId} has been deleted.`);
+        // You could also redirect the user after successful deletion
+        // window.location.href = 'success.html'; // Or back to list of employees
+      } else {
+        alert("Deletion canceled.");
+      }
+    } else {
+      alert("Please enter an Employee ID.");
+    }
+  }
+  
+  // Add event listener for the delete form
+  document.getElementById("delete-form").addEventListener("submit", deleteEmployee);
+  
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>Delete Employee</h1>
+    <form id="delete-form">
+      <label for="emp-id">Enter Employee ID to delete:</label>
+      <input type="text" id="emp-id" placeholder="Employee ID" required />
+      <button type="submit" class="delete-btn">Delete Employee</button>
+    </form>
+  </div>
+</body>
+</html>

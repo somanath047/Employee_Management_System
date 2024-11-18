@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>List of Employees</title>
+  <style>
+    /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Body Styling */
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Container for List Section */
+  .list-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Heading Style */
+  .list-container h2 {
+    font-size: 24px;
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  /* Employee Table */
+  .employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .employee-table thead {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .employee-table thead th {
+    padding: 12px;
+    text-align: left;
+    font-weight: bold;
+  }
+  
+  .employee-table tbody tr {
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .employee-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .employee-table tbody td {
+    padding: 12px;
+    text-align: left;
+  }
+  
+  /* Button Styling */
+  .edit-btn, .delete-btn {
+    padding: 8px 12px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .edit-btn {
+    background-color: #4CAF50;
+  }
+  
+  .edit-btn:hover {
+    background-color: #45a049;
+  }
+  
+  .delete-btn {
+    background-color: #f44336;
+  }
+  
+  .delete-btn:hover {
+    background-color: #d32f2f;
+  }
+  
+  /* Responsive Table */
+  @media screen and (max-width: 768px) {
+    .employee-table, .employee-table thead, .employee-table tbody, .employee-table th, .employee-table td, .employee-table tr {
+      display: block;
+    }
+  
+    .employee-table thead {
+      display: none;
+    }
+  
+    .employee-table tbody tr {
+      margin-bottom: 15px;
+      border: 1px solid #ddd;
+      padding: 10px;
+    }
+  
+    .employee-table tbody td {
+      text-align: right;
+      padding-left: 50%;
+      position: relative;
+    }
+  
+    .employee-table tbody td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  }
+  
+  </style>
+  <script>
+    // Sample functions for edit and delete actions
+
+// Function to simulate editing an employee
+function editEmployee(employeeId) {
+    alert(`Editing Employee ID: ${employeeId}`);
+    // Here, you can add functionality to open an edit form or page
+  }
+  
+  // Function to simulate deleting an employee
+  function deleteEmployee(employeeId) {
+    if (confirm(`Are you sure you want to delete Employee ID: ${employeeId}?`)) {
+      alert(`Employee ID: ${employeeId} has been deleted`);
+      // Here, you can add functionality to remove the row or update the database
+    }
+  }
+  
+  </script>
+</head>
+<body>
+  <div class="list-container">
+    <h2>Employee List</h2>
+    <table class="employee-table">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Department</th>
+          <th>Position</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="employee-list">
+        <!-- Placeholder data, can be dynamically populated -->
+        <tr>
+          <tr>
+            <td>001</td>
+            <td>John Doe</td>
+            <td>Sales</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(1)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(1)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>002</td>
+            <td>Jane Smith</td>
+            <td>Marketing</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(2)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(2)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>003</td>
+            <td>Bob Johnson</td>
+            <td>HR</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(3)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(3)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>004</td>
+            <td>Alice Brown</td>
+            <td>Finance</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(4)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(4)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>005</td>
+            <td>Charlie Davis</td>
+            <td>Sales</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(5)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(5)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>006</td>
+            <td>David Wilson</td>
+            <td>Marketing</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(6)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(6)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>007</td>
+            <td>Eva Moore</td>
+            <td>HR</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(7)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(7)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>008</td>
+            <td>Franklin Clark</td>
+            <td>Finance</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(8)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(8)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>009</td>
+            <td>Grace Lewis</td>
+            <td>Sales</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(9)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(9)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>010</td>
+            <td>Henry Walker</td>
+            <td>Marketing</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(10)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(10)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>011</td>
+            <td>Ivy Hall</td>
+            <td>HR</td>
+            <td>Manager</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(11)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(11)">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>012</td>
+            <td>Jack Young</td>
+            <td>Finance</td>
+            <td>Coordinator</td>
+            <td>
+              <button class="edit-btn" onclick="editEmployee(12)">Edit</button>
+              <button class="delete-btn" onclick="deleteEmployee(12)">Delete</button>
+            </td>
+          </tr>
+          
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

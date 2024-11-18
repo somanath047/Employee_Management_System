@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+        /* Basic Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .profile-container {
+            text-align: center;
+        }
+
+        .profile-card {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+        }
+
+        .profile-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .open-profile {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+        .open-profile:hover {
+            background-color: #0056b3;
+        }
+
+        /* Profile Details Modal */
+        .profile-details-container {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        .profile-details-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .profile-details-img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin: 10px 0;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(30px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        /* Close Button */
+        .close-profile-btn {
+            background-color: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .close-profile-btn:hover {
+            background-color: #cc0000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Main profile section -->
+    <div class="profile-container">
+        <div class="profile-card">
+            <img src="pro.png" alt="Profile Picture" class="profile-img" />
+            <h2 class="profile-name">Rule Breaker Group</h2>
+            <button class="open-profile" id="openProfileBtn">View Profile</button>
+        </div>
+    </div>
+
+    <!-- Profile Details Modal -->
+    <div class="profile-details-container" id="profileDetailsContainer">
+        <div class="profile-details-card">
+            <h2>Profile Details</h2>
+            <img src="pro.png" alt="Profile Image" class="profile-details-img">
+            <p><strong>Name:</strong> Rule Breaker Group</p>
+            <p><strong>ID:</strong> 2301</p>
+            <p><strong>POSITION:</strong>CEO</p>
+            <p><strong>More Details:</strong> Life is full of challenges, but each one is an opportunity to grow.</p>
+            <p><strong>More Details:</strong>Contact - rulebreakergroup@gmail.com</p>
+            
+
+            <button class="close-profile-btn" id="closeProfileBtn">Close Profile</button>
+        </div>
+    </div>
+
+    <script>
+        // Open the profile details modal
+        document.getElementById('openProfileBtn').addEventListener('click', function() {
+            document.getElementById('profileDetailsContainer').style.display = 'flex'; // Show modal
+        });
+
+        // Close the profile details modal
+        document.getElementById('closeProfileBtn').addEventListener('click', function() {
+            document.getElementById('profileDetailsContainer').style.display = 'none'; // Hide modal
+        });
+    </script>
+
+</body>
+</html>

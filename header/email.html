@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Animation</title>
+    <style>
+        /* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Set up the container */
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(76, 187, 238);
+    background: linear-gradient(90deg, rgb(45, 35, 93) 0%, rgb(52, 101, 110) 0%, rgb(23, 146, 208) 38%, rgb(141, 230, 140) 98%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container holding the image and email */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Profile Image Styling */
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Email Text Styling */
+.email {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    opacity: 0;
+    animation: slideUp 2s ease-out forwards;
+}
+
+/* Hover Effect */
+.email:hover {
+    color: #007bff;
+    cursor: pointer;
+}
+
+/* Animation for fade-in of image */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation for email text sliding up */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+    </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const emailElement = document.getElementById('email');
+            
+            // Open email in default mail client when clicked
+            emailElement.addEventListener('click', () => {
+                window.location.href = `mailto:${emailElement.textContent}`;
+            });
+        });
+        
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="pro.png" alt="Profile Picture" class="profile-img">
+        <div class="email">
+            <span id="email">rulebreaker@gmail.com</span>
+        </div>
+    </div>
+</html>
